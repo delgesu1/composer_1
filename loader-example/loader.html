@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader Example</title>
+    <!-- 3. Include the CSS (loader.css) -->
+    <link rel="stylesheet" href="loader.css">
+    <style>
+        /* Basic body style for example */
+        body { font-family: sans-serif; margin: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Place this div immediately inside your <body> tag -->
+    <div class="page-loader">
+        <div class="loader-content">
+            <div class="loader-icon">
+                <!-- You can customize the SVG colors -->
+                <svg width="50" height="50" viewBox="0 0 50 50">
+                    <circle cx="25" cy="25" r="20" fill="none" stroke="#D4AF37" stroke-width="2" />
+                    <path d="M25 5 L25 25 L40 25" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </div>
+            <!-- You can change the text below -->
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- 2. Wrap ALL your other page content (header, main, footer, etc.) in this div -->
+    <div id="main-content">
+
+        <h1>Your Page Title</h1>
+        <p>This is your main page content. It will appear after the loader.</p>
+        <!-- Header, sections, footer, etc. go here -->
+
+    </div>
+
+    <!-- 4. Include the JavaScript (loader.js) before your closing </body> tag -->
+    <script src="loader.js"></script>
+</body>
+</html>

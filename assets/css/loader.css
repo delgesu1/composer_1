@@ -1,0 +1,117 @@
+/* 
+ * Jane Doe - Musical Stave Loader
+ */
+
+/* ===== LOADER STYLES ===== */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-navy-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: opacity 0.6s cubic-bezier(0.65, 0, 0.35, 1), visibility 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-staves {
+    position: relative;
+    width: 320px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader-name {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--color-cream);
+    letter-spacing: 0.05em;
+    opacity: 0.95;
+    position: absolute;
+    z-index: 3;
+}
+
+.stave-line {
+    position: absolute;
+    height: 1px;
+    background-color: var(--color-gold);
+    width: 100%;
+    left: 0;
+    opacity: 0.45;
+    z-index: 2;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                opacity 0.6s ease;
+}
+
+.line1 { top: 25%; }
+.line2 { top: 38%; }
+.line3 { top: 50%; }
+.line4 { top: 62%; }
+.line5 { top: 75%; }
+
+/* Flying away animation for hidden loader */
+.page-loader.hidden .stave-line.line1 { transform: translateX(100%) rotate(2deg); opacity: 0; }
+.page-loader.hidden .stave-line.line2 { transform: translateX(-100%) rotate(-2deg); opacity: 0; }
+.page-loader.hidden .stave-line.line3 { transform: translateX(100%) rotate(1deg); opacity: 0; }
+.page-loader.hidden .stave-line.line4 { transform: translateX(-100%) rotate(-1deg); opacity: 0; }
+.page-loader.hidden .stave-line.line5 { transform: translateX(100%) rotate(3deg); opacity: 0; }
+
+/* Delay each line flying away for staggered effect */
+.page-loader.hidden .line1 { transition-delay: 0s; }
+.page-loader.hidden .line2 { transition-delay: 0.05s; }
+.page-loader.hidden .line3 { transition-delay: 0.1s; }
+.page-loader.hidden .line4 { transition-delay: 0.15s; }
+.page-loader.hidden .line5 { transition-delay: 0.2s; }
+
+/* Fade out the name slightly faster */
+.page-loader.hidden .loader-name {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* Fix: Update main content visibility properties */
+#main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    /* Remove visibility:hidden to prevent content from disappearing completely */
+}
+
+/* Fix: Ensure loaded state properly displays content */
+body.loaded #main-content {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+    .loader-staves {
+        width: 280px;
+        height: 100px;
+    }
+    
+    .loader-name {
+        font-size: 3rem;
+    }
+} 
