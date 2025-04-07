@@ -1712,6 +1712,11 @@ blockquote p {
         justify-content: center;
     }
 
+    /* Adjust hero image focus on smaller screens */
+    .hero-image {
+        background-position: 33% center;
+    }
+
     /* --- MOVED FROM 768px BREAKPOINT & REFINED --- */
     /* Hide desktop links and show hamburger */
     .nav-links > ul { 
