@@ -1777,6 +1777,11 @@ blockquote p {
         display: flex; /* Apply flex display only when active */
         justify-content: center;
         align-items: center;
+        /* Use solid colors for full opacity */
+        background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-burgundy-dark) 100%) !important;
+        /* Remove backdrop-filter if we want fully opaque */
+        backdrop-filter: none; 
+        -webkit-backdrop-filter: none;
     }
     
     /* Style links *inside* the active overlay */
@@ -1819,7 +1824,7 @@ blockquote p {
         font-weight: 300;
         letter-spacing: 0.1em;
         padding: 0.5rem 0;
-        color: var(--color-cream);
+        color: var(--color-cream) !important; /* Ensure text color is forced */
         position: relative;
         display: inline-block;
         transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
@@ -1838,7 +1843,7 @@ blockquote p {
         left: 0;
         width: 0;
         height: 1px;
-        background-color: var(--color-gold);
+        background-color: var(--color-gold) !important; /* Ensure underline color is forced */
         transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
     }
     
